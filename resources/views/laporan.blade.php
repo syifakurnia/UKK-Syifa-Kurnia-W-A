@@ -7,9 +7,9 @@
 <body>
  
 	<div class="container">
-		<p>Sudah di Validasi: {{ $sudah[0] }}</p>
+		<!-- <p>Sudah di Validasi: {{ $sudah[0] }}</p>
 		<p>Belum di Validasi: {{ $belum[0] }}</p>
-		<p>Pengaduan Hari ini: {{ $belum[0] }}</p>
+		<p>Pengaduan Hari ini: {{ $belum[0] }}</p> -->
 		<table class='table table-bordered'>
 			<thead>
 				<tr>

@@ -9,5 +9,5 @@ class Masyarakat extends Model
 {
     use HasFactory;
     protected $table = 'masyarakat';
-    protected $fillable = ['nik', 'name', 'email', 'username', 'password', 'telp'];
+    protected $fillable = ['nik', 'name', 'email', 'username', 'password', 'telp',];
 }

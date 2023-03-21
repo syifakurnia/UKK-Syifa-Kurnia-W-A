@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-             Welcome, {{ Auth::user()->name }}!!    
+             Welcome, {{ Auth::user()->name }}   
         </h2>
     </x-slot>
 
@@ -13,9 +13,6 @@
 		<br/>
 		<a href="{{ url('/cetak_pdf') }}" class="btn btn-primary" target="_blank">CETAK PDF</a>
 
-		<p>Sudah di Validasi: {{ $sudah[0] }}</p>
-		<p>Belum di Validasi: {{ $belum[0] }}</p>
-		<p>Pengaduan Hari ini: {{ $belum[0] }}</p>
 		<table class='table table-bordered'>
 			<thead>
 				<tr>

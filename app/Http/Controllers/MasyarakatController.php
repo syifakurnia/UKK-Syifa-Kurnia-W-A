@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Masyarakat;
 use App\Models\User;
-use App\Model\Pengaduan;
+use App\Models\Pengaduan;
 use App\Models\Admin;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -14,18 +14,18 @@ use Illuminate\Support\Facades\DB;
 
 class MasyarakatController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+     /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         $latest = DB::table('pengaduan')->orderBy('id')->limit(1);
         return view('dashboard', compact('latest'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+     /**
+     * Show the form for creating a new resource.
+     */
     public function store(Request $request)
     {
         // menyimpan data file yang diupload ke variabel $file
@@ -47,54 +47,36 @@ class MasyarakatController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function show(){
-
+    public function show()
+    {
+        //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-
-
-    /**
-     * Display the specified resource.
-     */
     public function dataRiwayat()
     {
-        $data = Admin::get()->where('nama_pengadu', '=', Auth::user()->name );
-        return view('masyarakat.riwayat', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $data = Admin::get()->where('nama_pengadu', '=', Auth::user()->name);
+        return view('masyarakat.riwayat', compact('data'))->with('i',(request()->input('page',1) -1) *5);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
+    public function edit()
     {
         $data = Admin::findOrFail($id);
-        return view('admin.tanggapan',compact('data'));
+        return view('admin.tanggapan', compact('data'));
     }
 
-    /**
-     * 
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id): RedirectResponse
+    public function  update(Request $request, $id): RedirecrResponse
     {
         $admin = Admin::findOrFail($id)->update([
             'tanggapan' => $request->tanggapan,
-            'status' => 'selesai'
+            'status' => 'selesai',
         ]);
         return redirect()->route('dataPengaduan');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id): RedirectResponse
+    public function destroy($id):RedirectResponse
     {
-            $post = User::findOrFail($id);
-            $post->delete();
-     
-            return redirect()->route('dataPetugas');
+        $post = User::findorFail($id);
+        $post->delete();
+        return redirect()->route('dataPetugas');
     }
 }
