@@ -42,23 +42,32 @@
                                     <form action="{{ route('admin.update', $datas->id) }}" method="POST">
                                       @csrf
                                       @method('PUT')
-                                      <button type="submit" class="btn btn-outline-info">Validasi</button>
-                                    </form> 
-
                                       @if ($datas->status === 'tunggu')
-                                      <button type="disable" class="btn">Tanggapan</button>
+                                      <button type="submit" class="btn btn-outline-info">Validasi</button>
+                                    </form>   
+                                    @endif
+
+                                      @if ($datas->status === 'selesai')
+                                      <button class="btn">Tanggapan</button>
+                                      <br>
+                                      <button class="btn">Validasi</button>
+                                      <br>
+                                      <button class="btn" disabled>Delete</button>
+
                                       @else
                                       <a class="btn btn-outline-success" href="{{ route('masyarakat.edit', $datas->id) }}">Tanggapan</a> 
                                       @endif
                                       <br>
+                                      @if($datas->status != 'selesai')
                                       <form action="{{ route('admin.destroy',$datas->id) }}" method="POST">
                          
                                         @csrf
                                         @method('DELETE')
                             
-                                        <button type="submit" class="btn btn-outline-danger">Hapus</button>
+                                        <button type="submit" class="btn btn-outline-danger;">Hapus</button>
                                     </form>
                                 </td>
+                                @endif
                               </tr>
                               @endforeach
                             </tbody>

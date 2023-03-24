@@ -38,6 +38,9 @@
                           <label>Foto: </label>
                           <input type="file" name="foto" class="">
                         </div>
+                        <div class="form-group">
+                          <label>Pilih jenis Laporan </label>
+                          <input type="radio" name=
                       
                     </div>
                     <div class="modal-footer">
