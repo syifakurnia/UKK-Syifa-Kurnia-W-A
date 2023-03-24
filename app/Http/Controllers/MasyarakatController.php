@@ -44,7 +44,7 @@ class MasyarakatController extends Controller
             'nik' => $request->nik,
             'nama_pengadu' => $request->nama_pengadu,
         ]);
-        return redirect()->route('dashboard');
+        return redirect()->route('riwayat');
     }
 
     public function show()
@@ -58,13 +58,13 @@ class MasyarakatController extends Controller
         return view('masyarakat.riwayat', compact('data'))->with('i',(request()->input('page',1) -1) *5);
     }
 
-    public function edit()
+    public function edit($id)
     {
         $data = Admin::findOrFail($id);
         return view('admin.tanggapan', compact('data'));
     }
 
-    public function  update(Request $request, $id): RedirecrResponse
+    public function update(Request $request, $id): RedirectResponse
     {
         $admin = Admin::findOrFail($id)->update([
             'tanggapan' => $request->tanggapan,

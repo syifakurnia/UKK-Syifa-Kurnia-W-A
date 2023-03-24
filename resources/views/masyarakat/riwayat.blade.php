@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-             Welcome, {{ Auth::user()->name }}
+             Daftar Laporan
         </h2>
     </x-slot>
 
@@ -33,14 +33,10 @@
                         <div class="form-group">
                           <label>Isi Laporan: </label>
                           <input type="text" name="isi_laporan" class="">
-                        </div>
+                        </div> &nbsp
                         <div class="form-group">
                           <label>Foto: </label>
                           <input type="file" name="foto" class="">
-                        </div>
-                        <div class="form-group">
-                          <label>Tanggal Pengaduan</label>
-                          <input type="date" name="tgl_pengaduan" class="">
                         </div>
                       
                     </div>
@@ -56,7 +52,7 @@
             
             <thead>
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col">No</th>
                   <th scope="col">Tanggal Pengaduan</th>
                   <th scope="col">Isi Laporan</th>
                   <th scope="col">Foto</th>
@@ -70,7 +66,7 @@
                 @foreach ($data as $item)
                 <tr>
                   <th scope="row">{{ ++$i }}</th>
-                  <td>{{ $item->tgl_pengaduan }}</td>
+                  <td>{{ $item->created_at }}</td>
                   <td>{{ $item->isi_laporan }}</td>
                   <td>
                     @if ($item->foto)

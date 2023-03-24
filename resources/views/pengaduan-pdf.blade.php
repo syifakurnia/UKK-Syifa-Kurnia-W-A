@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-             Welcome, {{ Auth::user()->name }}   
+             Daftar Laporan
         </h2>
     </x-slot>
 
@@ -11,8 +11,9 @@
  
 	<div class="container">
 		<br/>
-		<a href="{{ url('/cetak_pdf') }}" class="btn btn-primary" target="_blank">CETAK PDF</a>
-
+		<a href="{{ url('/cetak_pdf') }}" class="btn btn-primary" target="_blank">CETAK PDF</a> 
+	</br>&nbsp
+		
 		<table class='table table-bordered'>
 			<thead>
 				<tr>
@@ -29,7 +30,7 @@
 				<tr>
 					<td>{{$p->id}}</td>
 					<td>{{$p->nama_pengadu}}</td>
-					<td>{{$p->tgl_pengaduan}}</td>
+					<td>{{$p->created_at}}</td>
 					<td>{{$p->nik}}</td>
 					<td>{{$p->isi_laporan}}</td>
 					<td>{{$p->status}}</td>

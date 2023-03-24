@@ -26,7 +26,7 @@
 				<tr>
 					<td>{{$p->id}}</td>
 					<td>{{$p->nama_pengadu}}</td>
-					<td>{{$p->tgl_pengaduan}}</td>
+					<td>{{$p->created_at}}</td>
 					<td>{{$p->nik}}</td>
 					<td>{{$p->isi_laporan}}</td>
 					<td>{{$p->status}}</td>

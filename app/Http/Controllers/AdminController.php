@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
-use App\Models\Pengaduan;
-use App\Models\User;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
 use PDF;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Admin;
+use App\Models\Pengaduan;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
 
 class AdminController extends Controller
 {
@@ -83,8 +84,7 @@ class AdminController extends Controller
         $belum = DB::table('pengaduan')->where('status','=','proses')->selectRaw('count(id) as id')->pluck('id');
         $sudah = DB::table('pengaduan')->where('status','=','selesai')->selectRaw('count(id) as id')->pluck('id');
     	$pdf = PDF::loadview('laporan',['data'=>$data, 'belum'=>$belum, 'sudah'=>$sudah, 'belum'=>$belum]);
-    	return $pdf->download('laporan-pengaduan.pdf');
-
+    	return $pdf -> download('laporan-pengaduan.pdf');
     }
 
     public function update(Admin $id)
@@ -121,8 +121,4 @@ class AdminController extends Controller
             return redirect()->route('dataPengaduan');
     }
 
-    public function buatLaporan()
-    {
-        return view('buatLaporan');
-    }
 }

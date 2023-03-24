@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-             Welcome, {{ Auth::user()->name }}   
+             Data Pengaduan
         </h2>
     </x-slot>
 
@@ -13,9 +13,9 @@
                         <table class="table">
                             <thead>
                               <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">No</th>
                                 <th scope="col">id</th>
-                                <th scope="col">Tanggal</th>
+                                <th scope="col">Tanggal Pengaduan</th>
                                 <th scope="col">Nik</th>
                                 <th scope="col">Laporan</th>
                                 <th scope="col">Foto</th>
@@ -28,7 +28,7 @@
                               <tr>
                                 <td> {{ ++$i }} </td>
                                 <td> {{ $datas->id }} </td>
-                                <td> {{ $datas->tgl_pengaduan }} </td>
+                                <td> {{ $datas->created_at }} </td>
                                 <td> {{ $datas->nik }} </td>
                                 <td> {{ $datas->isi_laporan }} </td>
                                 <td>

@@ -12,11 +12,11 @@
 
                 <!-- Navigation Links -->
                 @if (Auth::user()->role === 'masyarakat')
-                <!-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                </div> -->
+                </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('riwayat')" :active="request()->routeIs('riwayat')">
                         {{ __('Daftar Laporan') }}
@@ -35,11 +35,11 @@
                         {{ __('Pengaduan') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="url('/laporan')" :active="request()->routeIs('laporan')">
                         {{ __('Laporan') }}
                     </x-nav-link>
-                </div>
+                </div> --}}
                 @endif
                 
                 @if (Auth::user()->role === 'admin')
@@ -53,7 +53,7 @@
                             {{ __('Pengaduan') }}
                         </x-nav-link>
                     </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('dataPetugas')" :active="request()->routeIs('dataPetugas')">
                             {{ __('Petugas') }}
                         </x-nav-link>
@@ -62,9 +62,9 @@
                         <x-nav-link :href="route('dataMasyarakat')" :active="request()->routeIs('dataMasyarakat')">
                             {{ __('Masyarakat') }}
                         </x-nav-link>
-                    </div>
+                    </div> --}}
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="url('/laporan')" :active="request()->routeIs('laporan')">
+                        <x-nav-link :href="url('laporan')" :active="request()->routeIs('laporan')">
                             {{ __('Laporan') }}
                         </x-nav-link>
                     </div>

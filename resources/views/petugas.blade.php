@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold tect xl text-gray-800 leading-tight">
-        {{ __('Dashboard') }}
+        Data Petugas
         </h2>
     </x-slot-name>
 
@@ -33,7 +33,7 @@
                                             @csrf
                                             @method('DELETE')
 
-                                            <button type="submit" class="dropdown-item">Delete</button>
+                                            <button type="button" class="btn btn-outline-danger">Delete</button>
                                            </form>
                                 </td>
                                         </ul>

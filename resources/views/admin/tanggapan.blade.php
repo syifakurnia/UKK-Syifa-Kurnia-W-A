@@ -24,7 +24,7 @@
                     <div class="form-group">
                       <label>Tanggal Tanggapan:</label>
                       <input type="date" name="tgl_tanggapan" class="">
-                    </div>
+                    </div> &nbsp
                     <div class="form-group">
                       <label>Tanggapan:</label>
                       <textarea type="text" name="tanggapan" class=""></textarea>
