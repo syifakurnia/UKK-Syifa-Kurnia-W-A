@@ -40,6 +40,7 @@ Route::put('/tanggapan', [AdminController::class, 'editData'])->name('update');
 
 Route::middleware(['auth', 'verified','checkRole:masyarakat'])->group(function () {
     Route::get('riwayat', [MasyarakatController::class, 'dataRiwayat'])->name('riwayat');
+    Route::get('dataRiwayat', [MasyarakatController::class, 'show'])->name('riwayat');
 });
 
 Route::middleware('auth')->group(function () {

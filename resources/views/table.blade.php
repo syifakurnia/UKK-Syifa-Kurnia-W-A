@@ -16,6 +16,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">id</th>
                                 <th scope="col">Tanggal Pengaduan</th>
+                                <th scope="col">Tanggal Kejadian</th>
                                 <th scope="col">Nik</th>
                                 <th scope="col">Laporan</th>
                                 <th scope="col">Foto</th>
@@ -29,6 +30,7 @@
                                 <td> {{ ++$i }} </td>
                                 <td> {{ $datas->id }} </td>
                                 <td> {{ $datas->created_at }} </td>
+                                <td> {{ $datas->tgl_kejadian }} </td>
                                 <td> {{ $datas->nik }} </td>
                                 <td> {{ $datas->isi_laporan }} </td>
                                 <td>
@@ -48,11 +50,11 @@
                                     @endif
 
                                       @if ($datas->status === 'selesai')
-                                      <button class="btn">Tanggapan</button>
+                                      <button class="btn btn-outline-info" disabled>Validasi</button>
                                       <br>
-                                      <button class="btn">Validasi</button>
+                                      <button class="btn btn-outline-success" disabled>Tanggapan</button>
                                       <br>
-                                      <button class="btn" disabled>Delete</button>
+                                      <button class="btn btn-outline-danger" disabled>Hapus</button>
 
                                       @else
                                       <a class="btn btn-outline-success" href="{{ route('masyarakat.edit', $datas->id) }}">Tanggapan</a> 

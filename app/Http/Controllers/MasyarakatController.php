@@ -40,6 +40,7 @@ class MasyarakatController extends Controller
             'foto' => $path,
             'isi_laporan' => $request->isi_laporan,
             'tgl_tanggapan' => $request->tgl_tanggapan,
+            'tgl_kejadian' => $request->tgl_kejadian,
             'tanggapan' => $request->tanggapan,
             'nik' => $request->nik,
             'nama_pengadu' => $request->nama_pengadu,
@@ -49,12 +50,13 @@ class MasyarakatController extends Controller
 
     public function show()
     {
-        //
+        $data = Admin::get()->where('akses', '=', 'public' && 'nik', '=', Auth::user()->nik);
+        return view('masyarakat.dataRiwayat',compact('data'))->with('i',(request()->input('page',1) -1) *5);
     }
 
     public function dataRiwayat()
     {
-        $data = Admin::get()->where('nama_pengadu', '=', Auth::user()->name);
+        $data = Admin::get()->where('nik', '=', Auth::user()->nik);
         return view('masyarakat.riwayat', compact('data'))->with('i',(request()->input('page',1) -1) *5);
     }
 

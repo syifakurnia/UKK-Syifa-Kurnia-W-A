@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id('id', 11);
             $table->string('nama_pengadu', 25);
             $table->date('tgl_pengaduan');
+            $table->date('tgl_kejadian');
             $table->string('nik', 16);
             $table->text('isi_laporan');
             $table->string('tanggapan', 225);
             $table->string('foto', 225);
+            $table->enum('akses', ['public','private']);
             $table->enum('status', ['tunggu', 'proses', 'selesai']);
             $table->timestamps();
         });
